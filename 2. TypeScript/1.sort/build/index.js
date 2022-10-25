@@ -1,2 +1,14 @@
 "use strict";
-console.log('hw2222there');
+Object.defineProperty(exports, "__esModule", { value: true });
+const Sorter_1 = require("./Sorter");
+const CharactersCollection_1 = require("./CharactersCollection");
+// const numbersCollection = new NumbersCollection([10, 3, -5, 0]);
+// const sorter = new Sorter(numbersCollection);
+// sorter.sort();
+// console.log(sorter.collection);
+// console.log(numbersCollection.data);
+const charactersCollection = new CharactersCollection_1.CharactersCollection('Xaalaret');
+const sorter = new Sorter_1.Sorter(charactersCollection);
+console.log(sorter.collection);
+sorter.sort();
+console.log(sorter.collection);
