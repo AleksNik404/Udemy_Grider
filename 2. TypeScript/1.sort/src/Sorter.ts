@@ -1,26 +1,23 @@
-interface Sortable {
-  length: number;
-  compare(leftIndex: number, rightIndex: number): boolean;
-  swap(leftIndex: number, rightIndex: number): void;
-}
+// interface Sortable {
+//   length: number;
+//   compare(leftIndex: number, rightIndex: number): boolean;
+//   swap(leftIndex: number, rightIndex: number): void;
+// }
 
-export class Sorter {
-  constructor(public collection: Sortable) {}
+export abstract class Sorter {
+  abstract compare(leftIndex: number, rightIndex: number): boolean;
+  abstract swap(leftIndex: number, rightIndex: number): void;
+  abstract length: number;
 
   sort(): void {
-    let { length } = this.collection;
+    let { length } = this;
 
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
         //// Check is array
-        if (this.collection.compare(j, j + 1)) {
-          this.collection.swap(j, j + 1);
+        if (this.compare(j, j + 1)) {
+          this.swap(j, j + 1);
         }
-
-        // if (this.collection[j] > this.collection[j + 1]) {
-        //   // prettier-ignore
-        //   [this.collection[j], this.collection[j + 1]] = [this.collection[j + 1], this.collection[j]];
-        // }
       }
     }
   }
